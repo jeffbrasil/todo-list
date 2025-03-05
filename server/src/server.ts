@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import connectDB from './config/db';
 /*    Configura um servidor Express básico.
 
 Habilita CORS e o uso de JSON nas requisições.
@@ -14,6 +14,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Conecta ao MongoDB
+connectDB(); 
 
 app.use(cors());
 app.use(express.json());
