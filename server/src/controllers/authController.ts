@@ -7,14 +7,15 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // RF-01: Cadastro de Perfil
-export const registerUser = async (req: Request, res: Response) => {
+ export const registerUser = async (req: Request, res: Response) => {
   const { name, email, password, genero, idade } = req.body;
 
   try {
     // Verifica se o usuário já existe
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ error: 'E-mail já cadastrado' });
+      res.status(400).json({ error: 'E-mail já cadastrado' });
+      return
     }
 
     // Criptografa a senha
@@ -38,13 +39,15 @@ export const loginUser = async (req: Request, res: Response) => {
     // Verifica se o usuário existe
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ error: 'Usuário não encontrado' });
+      res.status(404).json({ error: 'Usuário não encontrado' });
+      return
     }
 
     // Verifica a senha
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Senha inválida' });
+      res.status(401).json({ error: 'Senha inválida' });
+      return
     }
 
     // Gera o token JWT

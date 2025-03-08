@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
+import authRoutes from './routes/authRoutes'; // Importa as rotas de autenticação
+import taskRoutes from './routes/taskRoutes'; // Importa as rotas de tarefas
 /*    Configura um servidor Express básico.
 
 Habilita CORS e o uso de JSON nas requisições.
@@ -17,6 +19,12 @@ const PORT = process.env.PORT || 5000;
 
 // Conecta ao MongoDB
 connectDB(); 
+
+// Rotas de autenticação
+app.use('/api/auth', authRoutes);
+
+// Rotas de tarefas
+app.use('/api/tasks', taskRoutes); // Adicione as rotas de tarefas
 
 app.use(cors());
 app.use(express.json());

@@ -6,7 +6,8 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
   const token = req.header('Authorization')?.replace('Bearer ', '');
 
   if (!token) {
-    return res.status(401).json({ error: 'Acesso negado. Token não fornecido.' });
+    res.status(401).json({ error: 'Acesso negado. Token não fornecido.' });
+    return
   }
 
   try {
