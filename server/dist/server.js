@@ -13,6 +13,7 @@ Habilita CORS e o uso de JSON nas requisições.
 Define uma rota raiz (/) que retorna uma mensagem.
 
 Inicia o servidor na porta definida no .env ou na porta 5000. */
+import cors from 'cors';
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
@@ -24,3 +25,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.use(cors());
