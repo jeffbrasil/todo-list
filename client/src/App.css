@@ -1,42 +1,81 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* http://localhost:5173/ 
+Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #95aabe; /* Fundo azul escuro */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white; /* Texto branco por padrão */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Título principal */
+h1 {
+  color: #1b1b56; /* Cinza para o título */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Container da aplicação */
+.container {
+  background-color: #a6acb2; /* Fundo mais escuro para o container */
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Ajuste o tamanho conforme necessário */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Botão */
+button {
+  background-color: #355686; 
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 40px;
+  cursor: pointer;
 }
 
-.card {
-  padding: 2em;
+button:hover {
+  background-color: #355686; /* Lilás mais escuro no hover */
 }
 
-.read-the-docs {
-  color: #888;
+/* Estilo para o formulário */
+form {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 8px;
+  margin: 3px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 90%;
+}
+
+/* Título da Tarefa (input de texto) */
+input[type="text"] {
+  background-color: #355686; 
+  color: #fff; /* Texto branco */
+}
+
+/* Data (input de data) */
+input[type="date"] {
+  background-color: #355686; 
+  color: white;
+}
+
+/* Estilo para o título "Adicionar Tarefa" */
+h2 {
+  color: #2a3743; 
+}
+
+/* Modificar o placeholder da data */
+input[type="date"]::-webkit-input-placeholder {
+  color: white;
+}
+
+/* Modificar o placeholder do título */
+input[type="text"]::-webkit-input-placeholder {
+  color: white;
 }

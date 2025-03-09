@@ -1,14 +1,31 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://seu-backend.fly.dev/api';
+//const API_URL = import.meta.env.VITE_API_URL || 'https://seu-backend.fly.dev/api';
+
+const API_URL = 'http://localhost:5000/api/tasks'; // Ajuste a URL conforme necessário
+//const API_URL = import.meta.env.VITE_API_URL || 'https://seu-backend.fly.dev/api';
 
 // Tipos para as tarefas
 interface Task {
-  titulo: string;
+  title: string;
   descricao?: string;
   completed: boolean;
   dueDate: string; // Formato: YYYY-MM-DD
 }
+
+export const getTasks = async () => {
+  const token = localStorage.getItem('token'); // Supondo que o token seja salvo no localStorage
+
+  const response = await axios.get(API_URL, {
+    headers: {
+      Authorization: `Bearer ${token}`, // Adicione o token de autenticação
+    },
+  });
+
+  return response.data;
+};
+
+
 
 // Recuperar todas as tarefas do usuário
 export const fetchTasks = async (userId: string, token: string) => {

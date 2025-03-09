@@ -3,7 +3,8 @@ import React from 'react';
 const Header = () => {
   return (
     <header>
-      <h1>ToDo List</h1>
+      <h2>ToDo List</h2>
+      {/* Adicionar links de navegação se necessário */}
     </header>
   );
 };
